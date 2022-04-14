@@ -13,23 +13,24 @@ public class EpuzzleState extends SearchState {
 
     public boolean goalPredicate(Search searcher){
         EpuzzleSearch Esearcher = (EpuzzleSearch) searcher;
-        int[][] target = Esearcher.getTarget;
+        int[][] target = Esearcher.getTarget();
         boolean match = true;
-        for(int i = 0; i < target.count; i++){
-            for(int j =0; j < target[i].count; i++){
+        for(int i = 0; i < target.length; i++){
+            for(int j =0; j < target[i].length; i++){
                 if(board[i][j] != target[i][j])
                     match = false;
             }
         }
+        return match;
     }
 
     public ArrayList<SearchState> getSuccessors(Search searcher){
         EpuzzleSearch Esearcher = (EpuzzleSearch) searcher;
-        int row;
-        int column;
+        int row = 0;
+        int column = 0;
 
-        for(int i = 0; i < board.count; i++){
-            for(int j =0; j < board[i].count; i++){
+        for(int i = 0; i < board.length; i++){
+            for(int j =0; j < board[i].length; i++){
                 if(board[i][j] == 0){
                     row = i;
                     column = j;
@@ -37,8 +38,8 @@ public class EpuzzleState extends SearchState {
             }
         }
 
-        ArrayList<EpuzzleState> puzList = new ArrayList<EpuzzleState>;
-        ArrayList<SearchState> statList = new ArrayList<SearchState>;
+        ArrayList<EpuzzleState> puzList = new ArrayList<EpuzzleState>();
+        ArrayList<SearchState> statList = new ArrayList<SearchState>();
 
 
         if(row == 0 && column == 0){
@@ -88,6 +89,7 @@ public class EpuzzleState extends SearchState {
         statList.add((SearchState) puz);
     }
 
+    return statList;
     }
 
     private int[][] moveBoardPiece(int blankRow, int blankColumn, int valRow, int valColumn){
@@ -98,9 +100,31 @@ public class EpuzzleState extends SearchState {
     }
 
     public boolean sameState(SearchState state2){
-        EpuzzleState board2 = (EpuzzleState)state2;
-        return (deepEquals(board,board2));
+        EpuzzleState board2state = (EpuzzleState)state2;
+        int[][] board2 = board2state.getBoard();
+        boolean match = true;
+        for(int i = 0; i < board2.length; i++){
+            for(int j =0; j < board2[i].length; i++){
+                if(board[i][j] != board2[i][j])
+                    match = false;
+            }
+        }
+        return match;
+    }
 
+    public String toString(){
+        String result = "";
+        for(int i = 0; i < board.length; i++){
+            for(int j =0; j < board[i].length; i++){
+                result+= "" + board[i][j];
+                if(j != board.length-2){
+                    result+= " | ";
+                }
+            }
+            result+= "\n";
+        }
+        
+        return result;
     }
 
 }
