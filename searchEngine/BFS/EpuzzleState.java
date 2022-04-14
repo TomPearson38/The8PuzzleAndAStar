@@ -97,4 +97,10 @@ public class EpuzzleState extends SearchState {
         return newBoard;
     }
 
+    public boolean sameState(SearchState state2){
+        EpuzzleState board2 = (EpuzzleState)state2;
+        return (deepEquals(board,board2));
+
+    }
+
 }
