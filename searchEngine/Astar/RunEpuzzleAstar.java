@@ -16,9 +16,9 @@ public class RunEpuzzleAstar{
         int[][] goal = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
 
         EpuzzleSearch searcher = new EpuzzleSearch(goal);
-        SearchState initState = (SearchState) new EpuzzleState(start);
+        SearchState initState = (SearchState) new EpuzzleState(start, 100, false);
 
-        String resd = searcher.runSearch(initState, "breadthFirst");
+        String resd = searcher.runSearch(initState, "AStar");
         System.out.println(resd);
     }
 }

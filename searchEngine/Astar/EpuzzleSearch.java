@@ -13,7 +13,6 @@ public class EpuzzleSearch extends Search {
     //constructor creates the board
     /**
     *constructor create the board
-    *@param b the initial board layout
     *@param t the target board layout
      */
     public EpuzzleSearch(int[][] t)
