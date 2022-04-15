@@ -9,7 +9,7 @@
 
 import java.util.*;
 
-public class RunEpuzzleBFS{
+public class RunEpuzzleAstar{
 
     public static void main(String[] arg){
         int[][] start = {{1, 0, 3},{4, 2, 6},{7, 5, 8}};
