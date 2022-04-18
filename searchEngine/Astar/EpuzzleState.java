@@ -1,3 +1,9 @@
+/**
+  * EpuzzleState.java
+  *
+  * Run a AStar search for the 8 puzzle problem
+  *
+*/
 import java.util.*;
 
 public class EpuzzleState extends SearchState {

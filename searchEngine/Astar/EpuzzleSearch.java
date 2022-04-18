@@ -1,7 +1,7 @@
 /**
 *	EpuzzleSearch.java
 *
-*	search for 8-puzzle problem assignment for BFS
+*	search for 8-puzzle problem assignment for AStar
 */
 
 
