@@ -10,7 +10,6 @@ import java.util.*;
 public class EpuzzleSearch extends Search {
     private int[][] target; //Layout of the target board
 
-    //constructor creates the board
     /**
     *constructor create the board
     *@param t the target board layout
@@ -20,6 +19,11 @@ public class EpuzzleSearch extends Search {
         target = t;
     }
 
+
+    /**
+    *Returns the target board
+    *@return target board
+     */
     public int[][] getTarget(){
         return target;
     }

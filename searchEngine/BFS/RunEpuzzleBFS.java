@@ -12,7 +12,11 @@ import java.util.*;
 public class RunEpuzzleBFS{
 
     public static void main(String[] arg){
-        int[][] start = {{1, 0, 3},{4, 2, 6},{7, 5, 8}};
+        Scanner myInput = new Scanner( System.in );
+        System.out.print("Enter Seed: ");
+        int seed = myInput.nextInt();
+        EpuzzGen generatePuzzle = new EpuzzGen(seed);
+        int[][] start = generatePuzzle.puzzGen(8);
         int[][] goal = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
 
         EpuzzleSearch searcher = new EpuzzleSearch(goal);

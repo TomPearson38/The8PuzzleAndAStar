@@ -29,7 +29,7 @@ public abstract class Search {
     initNode.setGlobalCost(0); //change from search2
 
 	  //change from search1 - print strategy
-	  System.out.println("Starting "+strat+" Search");
+	  ///////////System.out.println("Starting "+strat+" Search");
 
 	  open = new ArrayList<SearchNode>(); // initial open, closed
 	  open.add(initNode);
@@ -40,18 +40,18 @@ public abstract class Search {
 	  while (!open.isEmpty()) {
 
 	    // print contents of open
-	    System.out.println("-------------------------");
-	    System.out.println("iteration no " + numIteration);
-	    System.out.println("open is");
+	    ////////System.out.println("-------------------------");
+	    ////////System.out.println("iteration no " + numIteration);
+	    ////////System.out.println("open is");
 	    for (SearchNode nn: open) {
 	      String nodestr = nn.toString();
-		    System.out.println(nodestr);
+		    ////////System.out.println(nodestr);
 	    }
 
       selectNode(strat); // change from search1 -selectNode selects next node given strategy,
       
       // makes it currentNode & removes it from open
-      System.out.println("Current node: "+currentNode.toString());
+      //////////System.out.println("Current node: "+currentNode.toString());
 
       if (currentNode.goalPredicate(this)) return reportSuccess();  //success
       //change from search1 - call reportSuccess
@@ -254,12 +254,13 @@ public abstract class Search {
 	      plen=plen+1;
       }
 
-    	System.out.println("=========================== \n");
+    	/////System.out.println("=========================== \n");
 	    System.out.println("Search Succeeds");
 
     	System.out.println("Efficiency "+ ((float) plen/(closed.size()+1)));
-	    System.out.println("Solution Path\n");
-	    return buf.toString();
+	    ////////////////////////////////////////////System.out.println("Solution Path\n");
+	    ////////////////////////////////////////////return buf.toString();
+      return "";
     }
 
     // reportSuccess for runSearcE
