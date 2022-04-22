@@ -1,7 +1,7 @@
 /**
   * EpuzzleState.java
   *
-  * Run a BFS search for the 8 puzzle problem
+  * State for BFS search for the 8 puzzle problem
   *
 */
 import java.util.*;

@@ -163,9 +163,8 @@ public abstract class Search {
 		System.out.println("Search Succeeds");
 
 		System.out.println("Efficiency " + ((float) plen / (closed.size() + 1)));
-		/////////System.out.println("Solution Path\n");
-		/////////return buf.toString();
-		return "";
+		System.out.println("Solution Path\n");
+		return buf.toString();
 	}
 
 }
