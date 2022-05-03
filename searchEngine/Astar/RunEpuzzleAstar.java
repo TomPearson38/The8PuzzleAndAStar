@@ -49,15 +49,15 @@ public class RunEpuzzleAstar{
 
         //search algorithm P1 
         EpuzzleSearch searcherP1 = new EpuzzleSearch(target);
-        SearchState initStateP1 = (SearchState) new EpuzzleState(startP1, 100, hamming);
+        SearchState initStateP1 = (SearchState) new EpuzzleState(startP1, 100, hamming, 1);
 
         //search algorithm P2 
         EpuzzleSearch searcherP2 = new EpuzzleSearch(target);
-        SearchState initStateP2 = (SearchState) new EpuzzleState(startP2, 100, hamming);
+        SearchState initStateP2 = (SearchState) new EpuzzleState(startP2, 100, hamming, 1);
 
         //search algorithm P3 
         EpuzzleSearch searcherP3 = new EpuzzleSearch(target);
-        SearchState initStateP3 = (SearchState) new EpuzzleState(startP3, 100, hamming);
+        SearchState initStateP3 = (SearchState) new EpuzzleState(startP3, 100, hamming, 1);
 
         //algorithm is ran for each P 
         String resultP1 = searcherP1.runSearch(initStateP1, "AStar");
@@ -83,11 +83,11 @@ public class RunEpuzzleAstar{
 
         //A* search algorithm using hamming search (boolean value is set to true)
         EpuzzleSearch searcherHam = new EpuzzleSearch(goal);
-        SearchState initStateHam = (SearchState) new EpuzzleState(start, 100, true);
+        SearchState initStateHam = (SearchState) new EpuzzleState(start, 100, true, 1);
 
         //A* search algorithm using manhattan search (boolean value is set to false)
         EpuzzleSearch searcherManhat = new EpuzzleSearch(goal);
-        SearchState initStateManhat = (SearchState) new EpuzzleState(start, 100, false);
+        SearchState initStateManhat = (SearchState) new EpuzzleState(start, 100, false, 1);
 
         //Hamming method is ran 
         System.out.println("Ham Method:");

@@ -16,10 +16,11 @@ public class EpuzzleState extends SearchState {
     * @param lc Local Cost
     * @param h Hamming Search
     */
-    public EpuzzleState(int[][] b, int lc, boolean h){
+    public EpuzzleState(int[][] b, int rm, boolean h, int lc){
         board = b;
-        localCost = lc;
+        estRemCost = rm;
         hamming = h;
+        localCost = lc;
     }
 
     /**
@@ -76,52 +77,52 @@ public class EpuzzleState extends SearchState {
 
         //Depending on the position of the 0, there are moves that are able to be made. This if statement finds the available moves.
         if(row == 0 && column == 0){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,1), estRemCost(moveBoardPiece(row,column,0,1), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,0), estRemCost(moveBoardPiece(row,column,1,0), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,1), estRemCost(moveBoardPiece(row,column,0,1), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,0), estRemCost(moveBoardPiece(row,column,1,0), Esearcher.getTarget()), hamming, 1));
         }
         else if(row == 0 && column == 1){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,0), estRemCost(moveBoardPiece(row,column,0,0), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,2), estRemCost(moveBoardPiece(row,column,0,2), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,0), estRemCost(moveBoardPiece(row,column,0,0), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,2), estRemCost(moveBoardPiece(row,column,0,2), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming, 1));
         }
         else if(row == 0 && column == 2){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,1), estRemCost(moveBoardPiece(row,column,0,1), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,2), estRemCost(moveBoardPiece(row,column,1,2), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,1), estRemCost(moveBoardPiece(row,column,0,1), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,2), estRemCost(moveBoardPiece(row,column,1,2), Esearcher.getTarget()), hamming, 1));
 
         }
         else if(row == 1 && column == 0){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,0), estRemCost(moveBoardPiece(row,column,0,0), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,0), estRemCost(moveBoardPiece(row,column,2,0), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,0), estRemCost(moveBoardPiece(row,column,0,0), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,0), estRemCost(moveBoardPiece(row,column,2,0), Esearcher.getTarget()), hamming, 1));
 
         }
         else if(row == 1 && column == 1){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,1), estRemCost(moveBoardPiece(row,column,0,1), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,0), estRemCost(moveBoardPiece(row,column,1,0), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,2), estRemCost(moveBoardPiece(row,column,1,2), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,1), estRemCost(moveBoardPiece(row,column,2,1), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,1), estRemCost(moveBoardPiece(row,column,0,1), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,0), estRemCost(moveBoardPiece(row,column,1,0), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,2), estRemCost(moveBoardPiece(row,column,1,2), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,1), estRemCost(moveBoardPiece(row,column,2,1), Esearcher.getTarget()), hamming, 1));
 
         }
         else if(row == 1 && column == 2){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,2), estRemCost(moveBoardPiece(row,column,0,2), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,2), estRemCost(moveBoardPiece(row,column,2,2), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,0,2), estRemCost(moveBoardPiece(row,column,0,2), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,2), estRemCost(moveBoardPiece(row,column,2,2), Esearcher.getTarget()), hamming, 1));
 
         }
         else if(row == 2 && column == 0){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,0), estRemCost(moveBoardPiece(row,column,1,0), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,1), estRemCost(moveBoardPiece(row,column,2,1), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,0), estRemCost(moveBoardPiece(row,column,1,0), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,1), estRemCost(moveBoardPiece(row,column,2,1), Esearcher.getTarget()), hamming, 1));
 
         }
         else if(row == 2 && column == 1){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,0), estRemCost(moveBoardPiece(row,column,2,0), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,2), estRemCost(moveBoardPiece(row,column,2,2), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,1), estRemCost(moveBoardPiece(row,column,1,1), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,0), estRemCost(moveBoardPiece(row,column,2,0), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,2), estRemCost(moveBoardPiece(row,column,2,2), Esearcher.getTarget()), hamming, 1));
 
         }
         else if(row == 2 && column == 2){
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,2), estRemCost(moveBoardPiece(row,column,1,2), Esearcher.getTarget()), hamming));
-            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,1), estRemCost(moveBoardPiece(row,column,2,1), Esearcher.getTarget()), hamming));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,1,2), estRemCost(moveBoardPiece(row,column,1,2), Esearcher.getTarget()), hamming, 1));
+            puzList.add(new EpuzzleState(moveBoardPiece(row,column,2,1), estRemCost(moveBoardPiece(row,column,2,1), Esearcher.getTarget()), hamming, 1));
 
         }
 
